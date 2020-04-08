@@ -11,8 +11,8 @@ spring:
     name: spring-cloud-config-client
 eureka:
   client:
-	service-url:
-	  defaultZone: http://eureka-dev:7001/eureka/
+    service-url:
+      defaultZone: http://eureka-dev:7001/eureka/
 ---
 server:
   port: 8202
@@ -22,5 +22,5 @@ spring:
     name: spring-cloud-config-client
 eureka:
   client:
-	service-url:
-	  defaultZone: http://eureka-test:7001/eureka/
+    service-url:
+      defaultZone: http://eureka-test:7001/eureka/
