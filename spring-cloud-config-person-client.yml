@@ -1,0 +1,69 @@
+spring:
+    profiles:
+        active: -dev
+---
+server:
+  port: 8001
+
+spring:
+  profiles: dev
+  application:
+    name: spring-cloud-provide-person
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource #数据源类型
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://192.168.199.172:3306/dx
+    username: root
+    password: 123456
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+      
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001:7001/eureka/
+  instance:
+    instance-id: spring-cloud-provide-person-8001 #自定义服务名称信息
+    prefer-ip-address: true #设置访问路径显示ip
+    
+info:
+  app.name: spring-cloud-parent
+  company.name: www.dx.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+---
+server:
+  port: 8001
+
+spring:
+  profiles: test
+  application:
+    name: spring-cloud-provide-person
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource #数据源类型
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://192.168.199.172:3306/dx02
+    username: root
+    password: 123456
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+      
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001:7001/eureka/
+  instance:
+    instance-id: spring-cloud-provide-person-8001 #自定义服务名称信息
+    prefer-ip-address: true #设置访问路径显示ip
+    
+info:
+  app.name: spring-cloud-parent
+  company.name: www.dx.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
